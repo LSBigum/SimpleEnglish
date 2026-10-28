@@ -2,6 +2,14 @@
 
 Each entry names the version, the date, and the measured effect where one exists.
 
+## 2.2.0, 2026-10-28
+
+- Changed: the reply can use headers, lists, and tables when they carry
+  structure: a list for three or more parallel items or steps, a table to
+  compare items on the same attributes, headers to split a long reply. Prose
+  stays the default. Bold and em-dashes stay banned. The Stop hook no longer
+  flags headers or list items.
+
 ## 2.1.1, 2026-09-30
 
 - Changed: removed wording in the skill that broke the skill's own rules. The

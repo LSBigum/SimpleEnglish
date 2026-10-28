@@ -103,6 +103,11 @@ def test_stop_is_silent_on_a_good_reply():
     code, out, err = run({"hook_event_name": "Stop", "last_assistant_message": "The build failed because the disk was full. Free 2 GB and run it again."})
     assert code == 0 and out.strip() == "", (code, out)
 
+def test_stop_allows_headers_lists_and_tables():
+    reply = "The run has three parts.\n\n## Steps\n\n- Build the image.\n- Push the image.\n- Deploy it.\n\n| Host | Port |\n|---|---|\n| db | 5432 |"
+    code, out, err = run({"hook_event_name": "Stop", "last_assistant_message": reply})
+    assert code == 0 and out.strip() == "", (code, out)
+
 def test_garbage_stdin_exits_zero():
     r = subprocess.run([sys.executable, str(HOOK)], input="not json", capture_output=True, text=True)
     assert r.returncode == 0

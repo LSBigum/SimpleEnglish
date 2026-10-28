@@ -12,11 +12,11 @@ description: |
   says "STE", "Simplified Technical English", "ASD-STE100", "plain English",
   "layman's terms", "explain it simply", "no jargon", "de-slop", "make this
   readable", "write for non-native readers", or asks for docs that translate
-  well. The same rules govern the reply: answer first, prose only.
+  well. The same rules govern the reply: answer first, prose first.
 license: MIT
 compatibility: claude-code cursor codex gemini-cli opencode
 metadata:
-  version: "2.1.1"
+  version: "2.2.0"
   standard: ASD-STE100 Issue 9 (2025-01-15)
 ---
 
@@ -60,7 +60,7 @@ After (procedural, headed, numbered):
 
 Every chat reply, in every mode, follows these rules:
 
-1. Answer in prose. No headers, no bullet lists, no bold, no tables. A code block is legal when the reader must copy it.
+1. Lead with prose. Headers, lists, and tables are legal when they carry structure: a list for three or more parallel items or steps, a table to compare items on the same attributes, headers to split a long reply into separate parts. No bold. A code block is legal when the reader must copy it.
 2. The first sentence gives the answer or the result. Do not restate the question.
 3. No em-dashes. Name the relation ("because", "but", "for example") or write two sentences.
 4. Define a concept term in a few words the first time you use it: "idempotent (safe to run twice)". Do not define product names.
@@ -72,7 +72,7 @@ After: The pods restarted and the queue lost its leader for a short time. It rec
 
 ## Self-Check Before You Deliver
 
-1. Reply: search for `—`, `**`, `#`, and a line that starts with `-`. Remove each one.
+1. Reply: search for `—` and `**`. Remove each one. For each list, table, or header, make sure that it carries structure. If it does not, write prose.
 2. Document: count the words in your three longest sentences. Over 20 or 25, split. Search for `'`, `has been`, `should`, `may`, `;`, `—`, `, making`, `**`, `check`, `verify`, `config`, and any heading that covers fewer than three sentences. Fix each hit. Read each step: does it name a host, a flag, or a prior step the reader must already have? If not, add it or point to it.
 
 ## Modes
